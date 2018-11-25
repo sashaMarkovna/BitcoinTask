@@ -3,135 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
-    <title>Forkio</title>
+    <title>Crypto</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <body>
+    <div class="error">
+        <div class="error__close"><span>x</span></div>
+        <h2 class="error__message">OOPS! =( <br>Something went wrong... <br>Please try again later</h2>
+    </div>
+    <div class="container">
 
-    <header class="header">
-
-        <div class="inlineBar">
-            <div class="inlineBar__row container">
-                //= template/logo.html
-                <div class="inlineBar__menuBlock">
-                    <ul class="menu menu--inline" id="menu">
-                        //= template/menuItems.html
-                    </ul>
-                    <a class="button button--buy" href="#">Buy Now</a>
-                    <div class="inlineBar__verticalSeparation"></div>
-                    //= template/menuWrapper.html
-                </div>
-            </div>
-            <ul class="menu menu--dropdown" id="dropdownMenu">
-                //= template/menuItems.html
+        <div class="currency">
+            <h1 class="currency__header">Select currency to exchange:</h1>
+            <div class="currency__selected" id="USD">USD</div>
+            <ul class="currency__list">
+                <li class="currency__item">EUR</li>
+                <li class="currency__item">RUB</li>
+                <li class="currency__item">GBP</li>
             </ul>
         </div>
 
-        <div class="header__title">
-            <p class="header__titleMainRow">Fork App</p>
-            <p class="header__titleSecondRow">A real gamechanger in the world of web development</p>
-            <p class="header__titleThirdRow">v. 2.8 For Mac and Windows</p>
-        </div>
-    </header>
+        <div class="crypto-currencies">
+            <div class="crypto-block crypto-block--ethereum">
+                <h3 class="crypto-block__header crypto-block--bold">Ethereum</h3>
+                <ul class="crypto-block__info" id="ethereum">
+                    <li class="crypto-block__param crypto-block--bold">Price:<span class="price" data-name="price"></span></li>
+                    <li class="crypto-block__param crypto-block--bold" style="font-size: 12px">Percent change
+                        <div class="slider">
+                          <div class="slider__circle" data-target="ethereum"></div>
+                        </div>
+                    </li>
+                    <li class="crypto-block__param">Hour change<span class="data" data-term="hour" onload="getData(this)"></span></li>
+                    <li class="crypto-block__param">Day change<span class="data" data-term="day"></span></li>
+                    <li class="crypto-block__param">Week change<span class="data" data-term="week"></span></li>
+                    <li class="crypto-block__param">Month change<span class="data" data-term="month"></span></li>
+                </ul>
+            </div>
 
-    <div class="downloadBlock">
-        <a class="button button--download" href="#">Download For Free Now</a>
-        <p class="downloadBlock__description">Unlimited 30-Days Trial Period</p>
+            <div class="crypto-block crypto-block--bitcoin">
+                <h3 class="crypto-block__header crypto-block--bold">Bitcoin</h3>
+                <ul class="crypto-block__info" id="bitcoin">
+                    <li class="crypto-block__param crypto-block--bold">Price:<span class="price" data-name="price"></span></li>
+                    <li class="crypto-block__param crypto-block--bold" style="font-size: 12px">Percent change
+                        <div class="slider">
+                            <div class="slider__circle" data-target="bitcoin"></div>
+                        </div>
+                    </li>
+                    <li class="crypto-block__param">Hour change<span class="data" data-term="hour" onload="getData(this)"></span></li>
+                    <li class="crypto-block__param">Day change<span class="data" data-term="day"></span></li>
+                    <li class="crypto-block__param">Week change<span class="data" data-term="week"></span></li>
+                    <li class="crypto-block__param">Month change<span class="data" data-term="month"></span></li>
+                </ul>
+            </div>
+
+            <div class="crypto-block crypto-block--litecoin">
+                <h3 class="crypto-block__header crypto-block--bold">Litecoin</h3>
+                <ul class="crypto-block__info" id="litecoin">
+                    <li class="crypto-block__param crypto-block--bold">Price:<span class="price" data-name="price"></span></li>
+                    <li class="crypto-block__param crypto-block--bold" style="font-size: 12px">Percent change
+                        <div class="slider">
+                            <div class="slider__circle" data-target="litecoin"></div>
+                        </div>
+                    </li>
+                    <li class="crypto-block__param">Hour change<span class="data" data-term="hour" onload="getData(this)"></span></li>
+                    <li class="crypto-block__param">Day change<span class="data" data-term="day"></span></li>
+                    <li class="crypto-block__param">Week change<span class="data" data-term="week"></span></li>
+                    <li class="crypto-block__param">Month change<span class="data" data-term="month"></span></li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <section class="editor">
-        <div class="editor__content container">
-            <p class="editor__title">REVOLUTIONARY EDITOR</p>
-            <p class="editor__description">Aenean cursus imperdiet nisl id fermentum. Aliquam pharetra dui laoreet vulputate dignissim. Sed id metus id quam auctor molestie eget ut augue.</p>
-            //= template/gitButtons.html
-        </div>
-    </section>
-
-    <section class="overview " id="overview">
-        //= template/overviewList.html
-        <div class="overview__codeBlock">
-        <p class="overview__title">&lt Here is what you get &gt</p>
-            <div class="overview__codeImage"></div>
-        </div>
-    </section>
-
-    <section class="socialBlock">
-        //= template/carousel.html
-        //= template/socialBtnBlock
-    </section>
-
-    <section class="reviews" id="about">
-        <div class="reviews__content container">
-            <p class="reviews__title">People Are Talking About Fork</p>
-            //= template/reviwsList.html
-        </div>
-        <hr class="reviews__separation">
-    </section>
-
-    <section class="purchase" id="purchase">
-        <p class="purchase__title">Fork Subscription Pricing</p>
-        <div class="purchase__content container">
-            //= template/purchaseOptions.html
-            <p class="purchase__footnote">Duis lobortis arcu sed arcu tincidunt feugiat.
-                Nulla nisi mauris, facilisis vitae aliquet id, imperdiet quis nibh.
-                Donec eget elit eu libero tincidunt consequat nec elementum orci.
-                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
-        </div>
-    </section>
-
-    <section class="followUp">
-        <div class="followUp__content container">
-            <p class="followUp__callbackTitle">Order callbak</p>
-            <p class="followUp__subscribeTitle">Subscribe To Stay In Touch</p>
-            <form class="callbackForm" id="callbackForm">
-                <input class="callbackForm__input callbackForm__inputName" type="text" placeholder="Your name" name="name" required>
-                <input class="callbackForm__input callbackForm__inputPhone" type="text" placeholder="Phone" name="phone" required>
-                <button class="callbackForm__button button button--call" type="submit">CALL ME!</button>
-            </form>
-            <form class="subscribeForm" id="subscribeForm">
-                <input class="subscribeForm__input" type="email" placeholder="Email..." name="email" required>
-                <button class="subscribeForm__button button button--subscribe">SUBSCRIBE</button>
-            </form>
-        </div>
-    </section>
-
-    //= template/footer.html
-
-    <script>
-         $(document).ready(function () {
-
-            $("#callbackForm").submit(function () {
-                $.ajax({
-                    type: "POST",
-                    url: "/php/mail.php",
-                    data: $(this).serialize()
-                }).done(function () {
-                    alert("Thank you! We'll contact you soon!");
-                });
-            });
-
-            $("#subscribeForm").submit(function () {
-                $.ajax({
-                    type: "POST",
-                    url: "/php/mail.php",
-                    data: $(this).serialize()
-                }).done(function () {
-                    alert("Thank you! We'll contact you soon!");
-                });
-                return false;
-            });
-         });
-    </script>
-
-
     <script src="js/main.min.js"></script>
 </body>
 </html>

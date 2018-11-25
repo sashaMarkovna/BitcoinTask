@@ -1,126 +1,20 @@
-
 @media screen and (max-width: 992px) {
-  //==========================================================HEADER-SECTION====//
-
-  //==========================================================OVERVIEW-SECTION====//
-  .overview {
-    @include flex-col;
-    &__codeImage { margin-left: auto; }
-    &__codeBlock { width: 100%; }
-    &__title {
-      position: absolute;
-      top: 47px;
-      font-size: 42px;
-      padding-top: 0;
-      text-align: center }
-    .benefits { padding-right: 0; }
-  }
-  //==========================================================REVIEW-SECTION====//
-  .reviews {
-    padding-top: 80px;
-    &__title { font-size: 42px; }
-  }
-  //==========================================================PURCHASE-SECTION====//
-  .purchase__title { margin-bottom: 47px; }
-  .purchase .focused { @include marginTB(60px, 60px); }
-  .purchase .purchaseOptions { flex-wrap: wrap; }
-  .purchase .purchaseOptions__option {
-    width: 257px;
-    margin: 7px; }
-  //==========================================================FOLLOW_UP-SECTION====//
-  .followUp__content { flex-direction: column; }
-}
-
-
-@media screen and (min-width: 762px) and (max-width: 992px) {
-  //==========================================================OVERVIEW-SECTION====//
-  .overview { padding-top: 142px; }
-}
-
-
-@media screen and (min-width: 481px) and (max-width: 992px) {
-  //==========================================================HEADER-SECTION====//
-  @include headerTitle(72, 24);
-  .header .inlineBar { padding-bottom: 73px; }
-  .header .menu--inline {
-    position: absolute;
-    width: 100%;
-    bottom: 22px;
-    left: 0;
-    .menu__item { @include marginLR(2.5%, 2.5%); }
-  }
-  //==========================================================OVERVIEW-SECTION====//
-  .overview__title {
-    width: 66%;
-    left: calc(50% - 33%); }
-  .overview__codeImage {
-    max-width: 736px;
-    width: 95.8%; }
-  .overview .benefits__textArea { width: initial; }
-  .overview .benefits {
-    width: 91.14%;
-    max-width: 91.14%;
-    margin-bottom: 72px; }
-  //==========================================================REVIEW-SECTION====//
-  .reviews .reviewsList__item { @include width(40%, 206.4px); }
-  .reviews__separation { min-width: 100%; }
-  //==========================================================PURCHASE-SECTION====//
-  .purchase .purchaseOptions { width: 90%; }
-  .purchase .purchaseOptions__option {
-    margin: 20px;
-    margin-bottom: 92px; }
-  //==========================================================FOLLOW_UP-SECTION====//
-  .followUp {
-    padding-bottom: 73px;
-    &__callbackTitle { margin: 0; }
-  }
-
-  .followUp .callbackForm__button {
-    position: absolute;
-    bottom: -42px; }
-
-  .followUp .callbackForm {
-    width: 100%;
-    &__input { min-width: 160px;}
-    &__inputPhone { margin-right: 0;}
-  }
-  //==========================================================FOOTER-SECTION====//
-  .footer {
-    .logoBlock,
-    .navigation,
-    .contacts,
-    .info { width: 40%; }
+  .currency {
+    &__header { font-size: 20px; }
   }
 }
 
+@media screen and (max-width: 592px) {
+  .currency {
+    flex-direction: column;
+    justify-content: space-around;
 
-@media screen and (min-width: 409px) and (max-width: 992px) {
-  //==========================================================EDITOR-SECTION====//
-  .editor__title { font-size: 42px; }
-}
-
-
-@media screen and (min-width: 481px) and (max-width: 695px) {
-  //==========================================================PURCHASE-SECTION====//
-  .purchase .purchaseOptions {
-    @include transform(0.9);
-    @include marginLR(-60px, -60px);
-    @include marginTB(-60px, -60px);
-    width: 130%; }
-}
-
-
-@media screen and (min-width: 535px) and (max-width: 600px) {
-  //==========================================================PURCHASE-SECTION====//
-  .purchase .purchaseOptions {
-    @include transform(0.8);
-    @include marginTB(-120px, -120px); }
-}
-
-
-@media screen and (min-width: 481px) and (max-width: 535px) {
-  //==========================================================PURCHASE-SECTION====//
-  .purchase .purchaseOptions {
-    @include transform(0.7);
-    @include marginTB(-180px, -180px); }
+    &__header {
+      font-size: 20px;
+      margin: 0; }
+    &__selected { margin: 0; }
+    &__list {
+      top: 95px;
+      right: auto; }
+  }
 }

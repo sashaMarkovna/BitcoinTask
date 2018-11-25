@@ -1,5 +1,4 @@
 @import "var";
-@import "mixin";
 * {
   padding: 0;
   margin: 0; }
@@ -20,9 +19,12 @@ section {
 }
 
 .container {
-  width: 95%;
+  @include flex-col;
+  width: 96%;
   max-width: 1200px;
-  min-width: 320px; }
+  padding: 0 2%;
+  margin: 0 auto;
+  justify-content: center;}
 
 .icon {
   background-image: url("../img/css_sprites.png");

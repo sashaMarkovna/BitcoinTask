@@ -1,37 +1,4 @@
-@media screen and (min-width: 993px) {
-  //==========================================================HEADER-SECTION====//
-  .header .inlineBar { @include paddingTB(30px, 30px); }
-  //==========================================================OVERVIEW-SECTION====//
-  .overview { padding-top: 100px;}
-}
 
 
-@media screen and (min-width: 993px) and (max-width: 1200px) {
-  //==========================================================OVERVIEW-SECTION====//
-  .overview .benefits { @include width(35.5%, 489px); }
-}
-
-@media screen and (min-width: 993px) and (max-width: 1170px) {
-  //==========================================================FOOTER-SECTION====//
-  .contacts__phone {font-size: 25px; }
-  .contacts__timing,
-  .contacts__address { font-size: 11px; }
-  .contacts__address { line-height: 20px; }
-}
 
 
-@media screen and (min-width: 993px) and (max-width: 1128px) {
-  //==========================================================FOLLOW_UP-SECTION====//
-  .followUp .callbackForm {
-    &__input { @include width(30%, 210px); }
-  }
-}
-
-
-@media screen and (min-width: 481px) and (max-width: 556px)  {
-  //==========================================================FOOTER-SECTION====//
-  .contacts__phone {font-size: 25px; }
-  .contacts__timing,
-  .contacts__address { font-size: 11px; }
-  .contacts__address { line-height: 20px; }
-}
