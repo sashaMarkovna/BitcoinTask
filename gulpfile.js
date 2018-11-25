@@ -1,6 +1,9 @@
 'use strict';
 
 let gulp = require('gulp'),
+    babel = require('gulp-babel'),
+    autoprefixer = require('autoprefixer'),
+    postcss = require('gulp-postcss'),
     rimRaf = require('rimraf'),
     uglify = require('gulp-uglify-es').default,
     watch = require('gulp-watch'),
@@ -73,6 +76,7 @@ gulp.task('js:build', function () {
     gulp.src(path.src.js)
         .pipe(rigger())
         .pipe(sourceMaps.init())                //Инициализация sourceMaps
+        .pipe(babel({ presets: ['@babel/env'] }))
         .pipe(concat('main.min.js'))
         .pipe(uglify().on('error', gutil.log))  //Минификация
         .pipe(sourceMaps.write())               //Прописка карты
@@ -85,8 +89,9 @@ gulp.task('style:build', function () {
    gulp.src(path.src.style)
        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
        .pipe(sass())
-       .pipe(preFixer()) //Префиксы для всех браузеров
+       // .pipe(autoprefixer()) //Префиксы для всех браузеров
        .pipe(sourceMaps.init())
+       // .pipe(postcss([ autoprefixer() ]))
        .pipe(cssMin('main.css.min'))
        .pipe(sourceMaps.write())
        .pipe(gulp.dest(path.build.css))

@@ -65,11 +65,10 @@ window.onload = function () {
     //should receive object of crypto-currency from cryptoList as a context and function as an argument
     function getData() {
         let obj = this,
-            valueOption = this.showValOptions,
             functions = [...arguments];
 
         $.get(this.url)
-            .then( (data) => functions.forEach( func => func.call(obj, data, valueOption)))
+            .then( (data) => functions.forEach( func => func.call(obj, data)))
             .catch( (error) => errorHandler(error));
     }
 
@@ -80,8 +79,8 @@ window.onload = function () {
     }
 
     //function will get current price and call render function for price element from DOM
-    function getCurrentPrice(data, valueOption) {
-        price = $(this.name + ' > li > span.price');
+    function getCurrentPrice(data) {
+        let price = $(this.name + ' > li > span.price');
         //data.bid = current price in data
         //if selected currency in USD just write data to price element, else - use converter to convert value to chosen currency
         selectedCurrency !== 'USD' ? converter.call(price, data.bid) : $(price).html(symbols[selectedCurrency] + data.bid);
@@ -89,10 +88,11 @@ window.onload = function () {
 
     //function will get current price changes by hour/day/week/month in $$ or %
     // and call render function for every DOM element with attribute 'data-term' with tha same value
-    function getCurrentPriceChanges(data, valueOption) {
+    function getCurrentPriceChanges(data) {
+        let valueOption = this.showValOptions;
+        let nodesList = $(this.name + ' > li > span.data');
         valueOption === 'percent' ? currentSymbol = '%' : currentSymbol = symbols[selectedCurrency];
 
-        let nodesList = $(this.name + ' > li > span.data');
         $(nodesList).map( function() {
             let period = $(this).attr('data-term'),
                 val = data['changes'][valueOption][period];

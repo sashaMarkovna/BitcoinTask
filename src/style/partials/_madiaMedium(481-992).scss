@@ -6,7 +6,11 @@
 
 @media screen and (max-width: 592px) {
   .currency {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
 
     &__header {
